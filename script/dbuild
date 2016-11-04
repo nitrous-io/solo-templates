@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# Usage: dbuild <directory> [args for docker build...]
+
+source $(dirname "$BASH_SOURCE[0]")/helper
+
+reguser="nitrous"
+
+builddir=${1:?"Missing directory to build"}
+tag="$reguser/$builddir"
+shift
+
+ok "Building $builddir for $tag"
+# FIXME: don't use sudo
+if sudo docker build -t $tag $@ $builddir; then
+  ok "Tagged with $tag"
+else
+  error "Error building $builddir with args $@"
+fi
