@@ -1,0 +1,19 @@
+#!/bin/bash
+#
+# Helpful functions and variables
+
+# colors
+NO_COLOR="\x1b[0m"
+OK_COLOR="\x1b[32;01m"
+ERROR_COLOR="\x1b[31;01m"
+WARN_COLOR="\x1b[33;01m"
+
+ok() {
+  local message=$1
+  echo -e "$OK_COLOR --> $message !....$NO_COLOR"
+}
+
+error() {
+  local message=$1
+  echo -e "$ERROR_COLOR --> $message !....$NO_COLOR"
+}
