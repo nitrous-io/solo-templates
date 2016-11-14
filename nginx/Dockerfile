@@ -5,7 +5,6 @@ MAINTAINER Nitrous, Inc. <eng@nitrous.io>
 # nginx     1.10.1-3+trusty2
 
 # install nginx
-
 RUN \
   echo "deb http://ppa.launchpad.net/nginx/stable/ubuntu $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/nginx-stable.list && \
   apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C300EE8C && \
@@ -15,18 +14,14 @@ RUN \
   apt-get clean
 
 # nginx upstart conf scripts are still buggy and doesn't work, use sysvinit instead
-
 RUN \
   rm /etc/init/nginx.conf && \
   update-rc.d nginx defaults
 
-COPY support/index.html /tmp/index.html
 COPY support/nginx-default /etc/nginx/sites-available/default
 
-RUN /bin/bash -c 'rm -rf /var/www/html'
+RUN mkdir -p /home/$NITROUS_USERNAME/public_html
 
-# Copy nitrous-scripts.json into home folder.
-COPY support/nitrous-scripts.json /home/$NITROUS_USERNAME/.nitrous-scripts.json
-RUN /bin/bash -c \
-  'chown $NITROUS_USERNAME:$NITROUS_USERNAME /home/$NITROUS_USERNAME/.nitrous-scripts.json && \
-  chmod 644 /home/$NITROUS_USERNAME/.nitrous-scripts.json'
+COPY support/index.html /home/$NITROUS_USERNAME/public_html/index.html
+
+RUN chown -R $NITROUS_USERNAME:www-data /home/$NITROUS_USERNAME/public_html
