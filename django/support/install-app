@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-set -e
-
-virtualenv -p /usr/bin/python3.4 /home/$NITROUS_USERNAME/code/django_env
-cd /home/$NITROUS_USERNAME/code/django_env
-source bin/activate
-cd /tmp
-pip install -r requirements.txt
