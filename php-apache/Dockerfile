@@ -3,7 +3,7 @@ MAINTAINER Nitrous, Inc. <eng@nitrous.io>
 
 # 2016-05-27
 # apache2               2.4.7-1ubuntu4.13
-# libapache2-mod-php7   7.0.12-1+deb.sury.org~trusty+1
+# libapache2-mod-php7   7.0.13-1+deb.sury.org~trusty+1
 
 # install apache
 
@@ -11,7 +11,7 @@ RUN \
   apt-get update && \
   DEBIAN_FRONTEND=noninteractive apt-get -y install \
     apache2=2.4.7-1ubuntu4.13 \
-    libapache2-mod-php7.0=7.0.12-1+deb.sury.org~trusty+1 && \
+    libapache2-mod-php7.0=7.0.13-1+deb.sury.org~trusty+1 && \
   apt-get clean
 
 RUN \

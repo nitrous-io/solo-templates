@@ -3,8 +3,8 @@ MAINTAINER Nitrous, Inc. <eng@nitrous.io>
 
 # 2016-07-28
 # nginx           1.10.1-3+trusty2
-# php             7.0.12-1+deb.sury.org~trusty+1
-# php7-fpm        7.0.12-1+deb.sury.org~trusty+1
+# php             7.0.13-1+deb.sury.org~trusty+1
+# php7-fpm        7.0.13-1+deb.sury.org~trusty+1
 
 # install nginx / php-fpm
 RUN \
@@ -13,8 +13,8 @@ RUN \
   apt-get update && \
   DEBIAN_FRONTEND=noninteractive apt-get -y install \
     nginx=1.10.1-3+trusty2 \
-    php7.0=7.0.12-1+deb.sury.org~trusty+1 \
-    php7.0-fpm=7.0.12-1+deb.sury.org~trusty+1 && \
+    php7.0=7.0.13-1+deb.sury.org~trusty+1 \
+    php7.0-fpm=7.0.13-1+deb.sury.org~trusty+1 && \
   apt-get clean
 
 # nginx upstart conf scripts are still buggy and doesn't work, use sysvinit instead
