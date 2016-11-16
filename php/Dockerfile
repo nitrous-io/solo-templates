@@ -2,7 +2,7 @@ FROM nitrous/nodejs:latest
 MAINTAINER Nitrous, Inc. <eng@nitrous.io>
 
 # 2016-05-27
-# php                   7.0.12-1+deb.sury.org~trusty+1
+# php                   7.0.13-1+deb.sury.org~trusty+1
 # mysql-server          5.5.53-0ubuntu0.14.04.1
 # libmysqlclient-dev    5.5.53-0ubuntu0.14.04.1
 # composer              1.0.0-alpha11
@@ -29,7 +29,7 @@ RUN apt-get install -y software-properties-common && \
 RUN \
   apt-get update && \
   DEBIAN_FRONTEND=noninteractive apt-get -y install \
-    php7.0=7.0.12-1+deb.sury.org~trusty+1 \
+    php7.0=7.0.13-1+deb.sury.org~trusty+1 \
     php7.0-curl php7.0-gd php7.0-mysql php7.0-mcrypt \
     php5-geoip php7.0-cgi php7.0-dev php7.0-intl \
     php-apc php-pear \
